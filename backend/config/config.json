@@ -1,0 +1,39 @@
+{
+  "api": {
+    "host": "0.0.0.0",
+    "port": 3000,
+    "debug": true
+  },
+  "openai": {
+    "model": "gpt-4",
+    "temperature": 0.3,
+    "max_tokens": 500
+  },
+  "whisper": {
+    "model": "whisper-1",
+    "language_detection": true,
+    "response_format": "json"
+  },
+  "tts": {
+    "model": "tts-1",
+    "voice": "alloy",
+    "speed": 1.0
+  },
+  "paths": {
+    "audio_input": "data/audio/input",
+    "audio_output": "data/audio/output",
+    "text_input": "data/text/input",
+    "text_output": "data/text/output",
+    "prompt": "prompt/sp.prompt"
+  },
+  "storage": {
+    "save_audio": true,
+    "save_text": false,
+    "save_history": false,
+    "history_file": "data/text/output/translation_history.json"
+  },
+  "audio": {
+    "input_format": "webm",
+    "output_format": "mp3"
+  }
+}

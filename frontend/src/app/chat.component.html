@@ -1,0 +1,71 @@
+<div class="chat-container">
+  <header class="chat-header">
+    <div class="header-content">
+      <h1 class="title">AI Translator</h1>
+      <div class="session-info">
+        <span class="session-id">Sesion: {{ session?.sessionId }}</span>
+        <span class="separator">|</span>
+        <span class="other-user">{{ getOtherUserName() }}</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div class="messages-container">
+    <div class="waiting-user-card" *ngIf="!session?.otherUserLanguage">
+      <h3>Sesion creada</h3>
+      <p>Comparte este codigo con el otro usuario:</p>
+      <div class="session-code-box">{{ session?.sessionId }}</div>
+      <p class="waiting-message">Esperando a que el otro usuario se una...</p>
+    </div>
+
+    <div class="message-wrapper" *ngFor="let msg of messages" [class.mine]="msg.isMine">
+      <div class="message" [class.sent]="msg.isMine" [class.received]="!msg.isMine">
+        <div class="message-header">
+          <span class="sender">{{ msg.isMine ? 'TU' : session?.otherUserName }}</span>
+          <span class="time">{{ msg.timestamp | date:'short' }}</span>
+        </div>
+        <div class="message-content">
+          <p class="original-text">{{ msg.originalText }}</p>
+          <p class="translation-arrow">→</p>
+          <p class="translated-text">{{ msg.translatedText }}</p>
+        </div>
+        <button 
+          *ngIf="!msg.isMine && msg.audioUrl" 
+          (click)="playMessage(msg)"
+          [disabled]="msg.isPlaying"
+          class="play-button">
+          {{ msg.isPlaying ? 'Reproduciendo...' : 'Reproducir' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="empty-state" *ngIf="messages.length === 0 && session?.otherUserLanguage">
+      <p>No hay mensajes aun</p>
+      <p class="hint">Presiona y manten el boton para grabar un mensaje</p>
+    </div>
+  </div>
+
+  <div class="input-section">
+    <div class="language-display">
+      <span>Mi idioma: {{ session?.myLanguage?.toUpperCase() }}</span>
+      <span class="separator">→</span>
+      <span *ngIf="session?.otherUserLanguage">Traducir a: {{ session?.otherUserLanguage?.toUpperCase() }}</span>
+      <span *ngIf="!session?.otherUserLanguage" class="waiting">Esperando otro usuario...</span>
+    </div>
+    <button 
+      class="record-button"
+      [class.recording]="isRecording"
+      [class.processing]="isProcessing"
+      [disabled]="isButtonDisabled()"
+      (mousedown)="onRecordStart()"
+      (mouseup)="onRecordStop()"
+      (touchstart)="onRecordStart()"
+      (touchend)="onRecordStop()">
+      <span class="button-text">{{ getButtonText() }}</span>
+    </button>
+  </div>
+</div>

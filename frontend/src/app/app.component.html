@@ -1,0 +1,73 @@
+<div class="container">
+  <header class="header">
+    <h1 class="title">Sistema de Traducción Bidireccional</h1>
+  </header>
+
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div class="translator-grid">
+    <div class="user-panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Usuario 1</h2>
+        <select class="language-select" [(ngModel)]="user1Lang" [disabled]="isRecording(1) || isProcessing(1)">
+          <option *ngFor="let lang of languages" [value]="lang.code">
+            {{ lang.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="record-section">
+        <button 
+          class="record-button"
+          [class.recording]="isRecording(1)"
+          [class.processing]="isProcessing(1)"
+          [class.playing]="isPlaying(1)"
+          [disabled]="isDisabled(1)"
+          (mousedown)="onRecordStart(1)"
+          (mouseup)="onRecordStop(1)"
+          (touchstart)="onRecordStart(1)"
+          (touchend)="onRecordStop(1)">
+          <span class="button-text">{{ getButtonText(1) }}</span>
+        </button>
+        
+        <div class="state-indicator" [class.active]="isRecording(1)">
+          <span class="indicator-dot" [class.recording]="isRecording(1)" [class.processing]="isProcessing(1)" [class.playing]="isPlaying(1)"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="user-panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Usuario 2</h2>
+        <select class="language-select" [(ngModel)]="user2Lang" [disabled]="isRecording(2) || isProcessing(2)">
+          <option *ngFor="let lang of languages" [value]="lang.code">
+            {{ lang.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="record-section">
+        <button 
+          class="record-button"
+          [class.recording]="isRecording(2)"
+          [class.processing]="isProcessing(2)"
+          [class.playing]="isPlaying(2)"
+          [disabled]="isDisabled(2)"
+          (mousedown)="onRecordStart(2)"
+          (mouseup)="onRecordStop(2)"
+          (touchstart)="onRecordStart(2)"
+          (touchend)="onRecordStop(2)">
+          <span class="button-text">{{ getButtonText(2) }}</span>
+        </button>
+        
+        <div class="state-indicator" [class.active]="isRecording(2)">
+          <span class="indicator-dot" [class.recording]="isRecording(2)" [class.processing]="isProcessing(2)" [class.playing]="isPlaying(2)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

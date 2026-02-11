@@ -1,0 +1,183 @@
+# Sistema Operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-*
+.cursor/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.hypothesis/
+*.cover
+*.log
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+*.env
+
+# Backend - Datos generados
+backend/data/audio/input/*
+!backend/data/audio/input/.gitkeep
+backend/data/audio/output/*
+!backend/data/audio/output/.gitkeep
+backend/data/text/input/*
+!backend/data/text/input/.gitkeep
+backend/data/text/output/*
+!backend/data/text/output/.gitkeep
+backend/data/text/output/translation_history.json
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Frontend - Angular
+frontend/dist/
+frontend/tmp/
+frontend/out-tsc/
+frontend/.angular/
+frontend/bazel-out
+
+# Frontend - Compilados
+frontend/*.js
+frontend/*.js.map
+frontend/*.d.ts
+
+# Testing
+coverage/
+*.lcov
+.nyc_output
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.swp
+*~.nib
+local.properties
+
+# Cache
+.cache/
+.parcel-cache/
+.npm
+.eslintcache
+.stylelintcache
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Credentials y secretos
+credentials.json
+secrets.yaml
+*.pem
+*.key
+*.cert
+*.crt
+
+# Archivos de respaldo
+*.backup
+*.bak
+*.old
+*-backup.*
+
+# Archivos de documentación temporales
+.docusaurus/
+.cache-loader/
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+
+# Angular
+frontend/dist/
+frontend/.angular/
+
+# General
+.env
